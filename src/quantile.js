@@ -4,9 +4,8 @@ import quickselect from "./quickselect.js";
 /**
  * The [quantile](https://en.wikipedia.org/wiki/Quantile):
  * this is a population quantile, since we assume to know the entire
- * dataset in this library. This is an implementation of the
- * [Quantiles of a Population](http://en.wikipedia.org/wiki/Quantile#Quantiles_of_a_population)
- * algorithm from wikipedia.
+ * dataset in this library. This implementation uses linear interpolation,
+ * equivalent to R's type=7 and numpy's default percentile method.
  *
  * Sample is a one-dimensional array of numbers,
  * and p is either a decimal number from 0 to 1 or an array of decimal
@@ -85,7 +84,8 @@ function compare(a, b) {
 }
 
 function quantileIndex(len, p) {
-    const idx = len * p;
+    // Use (n-1) * p to match numpy's linear method (type=7)
+    const idx = (len - 1) * p;
     if (p === 1) {
         // If p is 1, directly return the last index
         return len - 1;
@@ -93,15 +93,11 @@ function quantileIndex(len, p) {
         // If p is 0, directly return the first index
         return 0;
     } else if (idx % 1 !== 0) {
-        // If index is not integer, return the next index in array
-        return Math.ceil(idx) - 1;
-    } else if (len % 2 === 0) {
-        // If the list has even-length, we'll return the middle of two indices
-        // around quantile to indicate that we need an average value of the two
-        return idx - 0.5;
+        // If index is not integer, keep the fractional position so we can
+        // select both surrounding order statistics for interpolation.
+        return idx;
     } else {
-        // Finally, in the simple case of an integer index
-        // with an odd-length list, return the index
+        // If index is integer, return that exact position.
         return idx;
     }
 }
