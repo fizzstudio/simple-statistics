@@ -1,11 +1,12 @@
 {
-    "name": "simple-statistics",
+    "name": "@fizz/simple-statistics",
     "version": "7.10.0",
     "description": "Simple Statistics",
     "author": "Tom MacWright <tom@macwright.com> (https://macwright.com/)",
+    "type": "module",
     "repository": {
         "type": "git",
-        "url": "git://github.com/simple-statistics/simple-statistics.git"
+        "url": "git://github.com/fizzstudio/simple-statistics.git"
     },
     "files": [
         "src",
