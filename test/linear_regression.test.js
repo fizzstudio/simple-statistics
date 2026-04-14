@@ -1,8 +1,10 @@
 /* eslint no-shadow: 0 */
 
 const test = require("tap").test;
-const linearRegression = require("../").linearRegression;
-const linearRegressionLine = require("../").linearRegressionLine;
+const linearRegression =
+    require("../dist/simple-statistics.js").linearRegression;
+const linearRegressionLine =
+    require("../dist/simple-statistics.js").linearRegressionLine;
 
 test("linear regression", function (t) {
     t.test(
@@ -39,12 +41,12 @@ test("linear regression", function (t) {
 
     t.test("handles a single-point sample", function (t) {
         const l = linearRegressionLine(linearRegression([[0, 0]]));
-        t.deepEqual(l(10), 0);
+        t.same(l(10), 0);
         t.end();
     });
 
     t.test("a straight line will have a slope of 0", function (t) {
-        t.deepEqual(
+        t.same(
             linearRegression([
                 [0, 0],
                 [1, 0]
@@ -55,7 +57,7 @@ test("linear regression", function (t) {
     });
 
     t.test("a line at 50% grade", function (t) {
-        t.deepEqual(
+        t.same(
             linearRegression([
                 [0, 0],
                 [1, 0.5]
@@ -66,7 +68,7 @@ test("linear regression", function (t) {
     });
 
     t.test("a line with a high y-intercept", function (t) {
-        t.deepEqual(
+        t.same(
             linearRegression([
                 [0, 20],
                 [1, 10]

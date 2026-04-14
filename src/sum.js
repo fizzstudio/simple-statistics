@@ -30,7 +30,14 @@ function sum(x) {
 
     let transition;
 
+    if (typeof sum !== "number") {
+        return Number.NaN;
+    }
+
     for (let i = 1; i < x.length; i++) {
+        if (typeof x[i] !== "number") {
+            return Number.NaN;
+        }
         transition = sum + x[i];
 
         // Here we need to update the correction in a different fashion

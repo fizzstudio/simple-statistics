@@ -3,7 +3,7 @@
 const test = require("tap").test;
 const Random = require("random-js");
 const random = new Random.Random(Random.MersenneTwister19937.seed(0));
-const ss = require("../");
+const ss = require("../dist/simple-statistics.js");
 
 function rng() {
     return random.real(0, 1);
@@ -45,16 +45,8 @@ test("permutation test", function (t) {
                 ss.permutationTest(
                     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
                     [
-                        99999,
-                        99999,
-                        99999,
-                        99999,
-                        99999,
-                        99999,
-                        99999,
-                        99999,
-                        99999,
-                        99999
+                        99999, 99999, 99999, 99999, 99999, 99999, 99999, 99999,
+                        99999, 99999
                     ],
                     "less",
                     undefined,
@@ -64,6 +56,7 @@ test("permutation test", function (t) {
             t.end();
         }
     );
+
     t.test(
         "permutationTest should throw error if wrong argument received",
         function (t) {

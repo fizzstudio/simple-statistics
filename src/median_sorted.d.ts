@@ -1,6 +1,6 @@
 /**
- * https://simplestatistics.org/docs/#mediansorted
+ * https://simple-statistics.github.io/docs/#mediansorted
  */
-declare function medianSorted(sorted: number[]): number;
+declare function medianSorted(sorted: readonly number[]): number;
 
 export default medianSorted;

@@ -1,6 +1,7 @@
 /* eslint no-shadow: 0 */
 
-const BayesianClassifier = require("../").BayesianClassifier;
+const BayesianClassifier =
+    require("../dist/simple-statistics.js").BayesianClassifier;
 const test = require("tap").test;
 
 test("BayesianClassifier", function (t) {
@@ -12,7 +13,7 @@ test("BayesianClassifier", function (t) {
             },
             "animal"
         );
-        t.deepEqual(
+        t.same(
             bayes.score({
                 species: "Cat"
             }),
@@ -37,7 +38,7 @@ test("BayesianClassifier", function (t) {
             },
             "chair"
         );
-        t.deepEqual(
+        t.same(
             bayes.score({
                 species: "Cat"
             }),
@@ -75,7 +76,7 @@ test("BayesianClassifier", function (t) {
             },
             "chair"
         );
-        t.deepEqual(
+        t.same(
             bayes.score({
                 species: "Cat"
             }),
@@ -120,7 +121,7 @@ test("BayesianClassifier", function (t) {
             },
             "chair"
         );
-        t.deepEqual(
+        t.same(
             bayes.score({
                 color: "white"
             }),
@@ -158,7 +159,7 @@ test("BayesianClassifier", function (t) {
             },
             "chair"
         );
-        t.deepEqual(
+        t.same(
             bayes.score({
                 species: "Cat"
             }),
@@ -167,7 +168,7 @@ test("BayesianClassifier", function (t) {
                 chair: 0.25
             }
         );
-        t.deepEqual(
+        t.same(
             bayes.score({
                 species: "Dog"
             }),

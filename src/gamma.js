@@ -1,4 +1,4 @@
-import factorial from "./factorial";
+import factorial from "./factorial.js";
 
 /**
  * Compute the [gamma function](https://en.wikipedia.org/wiki/Gamma_function) of a value using Nemes' approximation.
@@ -20,7 +20,7 @@ function gamma(n) {
     if (Number.isInteger(n)) {
         if (n <= 0) {
             // gamma not defined for zero or negative integers
-            return NaN;
+            return Number.NaN;
         } else {
             // use factorial for integer inputs
             return factorial(n - 1);

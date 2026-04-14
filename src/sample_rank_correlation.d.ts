@@ -1,6 +1,9 @@
 /**
- * https://simplestatistics.org/docs/#samplerankcorrelation
+ * https://simple-statistics.github.io/docs/#samplerankcorrelation
  */
-declare function sampleRankCorrelation(x: number[], y: number[]): number;
+declare function sampleRankCorrelation(
+    x: readonly number[],
+    y: readonly number[]
+): number;
 
 export default sampleRankCorrelation;

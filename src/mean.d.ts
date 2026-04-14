@@ -1,6 +1,6 @@
 /**
- * https://simplestatistics.org/docs/#mean
+ * https://simple-statistics.github.io/docs/#mean
  */
-declare function mean(x: number[]): number;
+declare function mean(x: readonly number[]): number;
 
 export default mean;

@@ -1,7 +1,7 @@
 /* eslint no-shadow: 0 */
 
 const test = require("tap").test;
-const ss = require("../");
+const ss = require("../dist/simple-statistics.js");
 
 test("gamma", function (t) {
     t.test("gamma for integer should return whole number", function (t) {
@@ -17,11 +17,11 @@ test("gamma", function (t) {
         t.end();
     });
     t.test("gamma for negative integer should return NaN", function (t) {
-        t.ok(isNaN(ss.gamma(-2)));
+        t.ok(Number.isNaN(ss.gamma(-2)));
         t.end();
     });
     t.test("gamma for zero should return NaN", function (t) {
-        t.ok(isNaN(ss.gamma(0)));
+        t.ok(Number.isNaN(ss.gamma(0)));
         t.end();
     });
 

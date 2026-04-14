@@ -1,6 +1,6 @@
 /**
- * https://simplestatistics.org/docs/#mode
+ * https://simple-statistics.github.io/docs/#mode
  */
-declare function mode(x: number[]): number;
+declare function mode(x: readonly number[]): number;
 
 export default mode;
